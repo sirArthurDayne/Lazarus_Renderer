@@ -1,11 +1,13 @@
 #include"Framebuffer.h"
+#include "Ray.h"
 
 int main()
 {
 	const int WIDTH = 200;
 	const int HEIGHT = 100;
-	vec3 colorA = { 255.0f,0.0f,0.0f };
-	vec3 colorB = { .0f,0.0f,255.0f };
+	const vec3 colorA = { 255.0f,0.0f,0.0f };
+	const vec3 colorB = { .0f,255.0f,0.0f };
+	
 	Framebuffer buffer {WIDTH,HEIGHT,3};
 	for (int y = 0; y < HEIGHT; y++)
 	{

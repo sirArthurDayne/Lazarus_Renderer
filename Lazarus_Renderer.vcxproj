@@ -165,10 +165,12 @@
   <ItemGroup>
     <ClCompile Include="src\Framebuffer.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="src\vec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framebuffer.h" />
+    <ClInclude Include="src\Ray.h" />
     <ClInclude Include="src\stb_image_write.h" />
     <ClInclude Include="src\vec.h" />
   </ItemGroup>
