@@ -1,18 +1,19 @@
-#include "vec.h"
-#include <iostream>
+#include"Framebuffer.h"
 
 int main()
 {
-    vec3 a{1.0f,0.0f,0.0f};
-    vec3 b{0.0f,1.0f,0.0f};
-    vec3 c{1.0f,1.0f,-1.0f};
-
-    float dir = 2.0f;
-    vec3 ray =a + b * dir;
-    vec3 f = a.cross(b);
-
-    ray.print("ray");
-    f.print("f");
-
-    return 0;
+	const int WIDTH = 200;
+	const int HEIGHT = 100;
+	vec3 colorA = { 255.0f,0.0f,0.0f };
+	vec3 colorB = { .0f,0.0f,255.0f };
+	Framebuffer buffer {WIDTH,HEIGHT,3};
+	for (int y = 0; y < HEIGHT; y++)
+	{
+		for (int x = 0; x < WIDTH; x++)
+		{
+			buffer.write(x, y, colorA.interpolate(colorB,float(x) /float(WIDTH) ));
+		}
+	}
+	buffer.save("images/result.png");
+	return 0;
 }

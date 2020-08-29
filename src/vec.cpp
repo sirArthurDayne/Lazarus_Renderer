@@ -7,7 +7,8 @@ vec3::vec3() : x(0.0f), y(0.0f),z(0.0f) {}
 vec3::~vec3() {}
 vec3::vec3(float scalar) : x(scalar), y(scalar),z(scalar) {}
 vec3::vec3(float _x, float _y, float _z): x(_x), y(_y), z(_z) {}
-vec3::vec3(vec3& v): x(v.x),y(v.y),z(v.z) {}
+
+vec3::vec3(const vec3& v): x(v.x),y(v.y),z(v.z) {}
 
 vec3 vec3::add(const vec3& other) const
 {
@@ -135,6 +136,12 @@ vec3 vec3::cross(const vec3 &other) const
     const float z = this->x*other.y - this->y*other.x;
     return vec3(x,y,z);
 }
+
+vec3 vec3::interpolate(const vec3& other,float scalar) const 
+{
+     return vec3(x + (other.x - x) * scalar, y + (other.y - y) * scalar, z + (other.z - z) * scalar);
+}
+
 
 void vec3::print(const char* name) const
 {
