@@ -16,7 +16,7 @@ int main()
 	const int WIDTH = 320;
 	const int HEIGHT = 156;
 
-    vec3 origin = vec3(0.0f, 0.0f, -2.0f);
+    vec3 origin = vec3(0.0f, 0.0f, 2.0f);
     Camera camera {origin, 45.0f, (float)WIDTH/(float)HEIGHT};
 	Framebuffer buffer {WIDTH,HEIGHT,3};
 	for (int y = 0; y < HEIGHT; y++)
