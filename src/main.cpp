@@ -1,23 +1,22 @@
 #include"Framebuffer.h"
 #include "Camera.h"
+#include "Sphere.h"
 
-bool hit_sphere(const Ray& ray, vec3 center, float radius)
-{
-    vec3 origin = ray.origin;
-    vec3 oc = origin - center;
-    float b = 2.0f *oc.dot(ray.direction);
-    float c = oc.dot(oc) - radius * radius;
-    float discr = b*b - 4.0f * c;
-    return (discr > 0.0f);
-}
 
-vec3 RenderScene(const Ray& ray)
+vec3 RenderScene(Ray& ray)
 {
 	vec3 colorA = { 255.0f};
 	vec3 colorB = { 128.0f,200.0f,255.0f };
-    if(hit_sphere(ray,vec3(0.0f,0.0f,-1.0f), .50f))
-        return vec3(255.0f,0.0f,0.0f);
-
+    Sphere sp = {vec3(1.0f,.0f,1.0f), 0.5f};//+x:right,+y:up, +z:in
+    float dist = sp.getIntersection(ray);
+    if(dist > 0.f)
+    {
+        vec3 collision = ray.across(dist);
+        vec3 normal = sp.getNormal(collision);
+        vec3 color = (normal + 1.0f) *0.5f;
+        return color * 255.f;
+    }
+    //background
     vec3 dir = ray.direction;
     float t = dir.y * 0.5f + 1.f;
     return colorA.interpolate(colorB, t);
