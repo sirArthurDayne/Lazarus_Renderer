@@ -166,13 +166,17 @@
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Framebuffer.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Primitive.cpp" />
     <ClCompile Include="src\Ray.cpp" />
+    <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\vec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\Framebuffer.h" />
+    <ClInclude Include="src\Primitive.h" />
     <ClInclude Include="src\Ray.h" />
+    <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\stb_image_write.h" />
     <ClInclude Include="src\vec.h" />
   </ItemGroup>
